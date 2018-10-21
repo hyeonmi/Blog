@@ -9,7 +9,7 @@ theme_settings:
   avatar: assets/img/avatar.jpg
   favicon: assets/favicon.ico
   gravatar: # Email MD5 hash
-  description: "#frontend-engineer #agile #servant-leadership #coffee #writer" # used by search engines
+  description: "#frontend-engineer #agile #coffee #writer #woman" # used by search engines
 
   # Header and footer text
   header_text: >
@@ -17,7 +17,7 @@ theme_settings:
     <h2>#front-end engineer</h2>
     <h2>#writer</h2>
     <h2>#barista</h2>
-  header_text_feature_image: assets/img/title_img.png
+  header_text_feature_image: 
   footer_text: >
    <p>copyright 2018 by Hyeon-Mi.<br/>theme by rohanchandra.</p>
 
