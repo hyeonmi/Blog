@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>Search | Hyeon-Mi's Blog</title>
+	<meta name="description" content="#frontend-engineer #agile #servant-leadership #coffee #writer">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/search.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Hyeon-Mi's Blog" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/assets/img/avatar.jpg" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Hyeon-Mi's Blog</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					about
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/tags.html">
+					tags
+				</a>
+			</li>
+			
+			
+			<!-- Social icons from Font Awesome, if enabled  -->
+			
+
+
+<li>
+	<a href="mailto:kim.hyeonmi.0711@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/hyeonmi" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.linkedin.com/in/hyeon-mi-kim-5b7339ab/" title="Follow on LinkedIn">
+		<i class="fa fa-fw fa-linkedin"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/@skylarkim22" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+            
+            <!-- Search bar -->
+            
+		</ul>
+	</nav>
+    
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h1 class="title">Search</h1>
+    
+  </header>
+  <section class="post-content"><div class="search">
+    <div id="search-results"></div>
+    <p id="not-found" style="display: none">
+        No results found.
+    </p>
+</div>
+
+
+<script>
+  window.store = {
+    
+      "2018-10-14-ts-variable-declarations-html": {
+        "title": "[Handbook] 변수 선언(Variable Declarations)",
+        "tags": "typescirpt, handbook, front-end, javascript, js",
+        "date": "October 14, 2018",
+        "author": "",
+        "category": "",
+        "content": "변수 선언var 선언자바스크립트에 익숙한 사람에게는 꼭 필요한 내용이 아니라서 간단하게 특징만 짚고 넘어갑니다.함수 단위의 스코프이전의 자바스크립트의 var는 다른 언어와 다르게 블록 단위로 변수의 스코프가 정해지지 않습니다.함수, 객체, 모듈, 네임스페이스, 글로벌 스코프가 존재합니다.function f(shouldInitialize: boolean) {    if (shouldInitialize) {        var x = 10;    }    return x;}f(true);  // returns '10'f(false); // returns 'undefined'예제의 경우처럼 x 변수가 if 블록 안에 선언되었음에도 x값이 할당됩니다.변수 캡처의 특이점for (var i = 0; i &lt; 10; i++) {    setTimeout(function() { console.log(i); }, 100 * i);}//결과는 10이 10번 찍힌다.이런 현상이 발생하는 이유는 for loop가 실행이 끝난 후에 setTimeout가 실행되는데그때 캡쳐된 i 값이 10이기 때문입니다.1 ~ 10 순차적으로 출력하려면 반복마다 i를 캡쳐하는 즉시실행함수(IIFE:Immediately Invoked Function Expression)사용 하면됩니다.for (var i = 0; i &lt; 10; i++) {    // 현재 상태의 i를 캡쳐    // 현재 값과 함수가 호출 된다.    (function(i) {        setTimeout(function() { console.log(i); }, 100 * i);    })(i);}let 선언대부분 var와 유사하지만 가장 큰 차이점은 let은 블록 스코프를 가진다는 점입니다.let으로 선언하게 되면 렉스컬 스코프(lexical-scope), 블록 스코프(block-scope)로 불리는 스코프를 사용하게 됩니다.블록 스코프는 var와 다르게 가까운 블록안의 스코프를 가집니다.function f(input: boolean) {    let a = 100;    if (input) {        // 'a' 참조 가능        let b = a + 1;        return b;    }    // Error: 'b'는 여기에 존재하지 않음    return b;}또한 블록 스코프를 벗어나서 호출하거나 변수가 선언되기 전에 호출 하면 에러를 발생시킵니다.try {    throw \"oh no!\";}catch (e) {    console.log(\"Oh well.\");}// Error: 'e' doesn't exist hereconsole.log(e);a++; // illegal to use 'a' before it's declared;let a;재선언과 쉐도잉var의 경우 이미 선언된 변수를 중첩해서 선언할수 있어서 덮어쓸수 있습니다.하지만 let은 재선언 할수 없고 그럴 경우 에러를 발생합니다.let x = 10;let x = 20; // error: 같은 스코프 내에서 재선언 할수없다.중첩된 스코프 안에 동일한 이름으로 새로 선언하는 행위를 쉐도잉이라고 부릅니다.가독성에 좋지 않기 때문에 지양하는게 좋습니다.function sumMatrix(matrix: number[][]) {    let sum = 0;    for (let i = 0; i &lt; matrix.length; i++) {        var currentRow = matrix[i];        for (let i = 0; i &lt; currentRow.length; i++) {            sum += currentRow[i];        }    }    return sum;}블록 스코프의 변수 캡쳐스코프가 실행될때마다 “환경(environment)” 변수를 생성하는데 실행을 마친후에도매번 스코프가 실행될때 직관적으로 더 나은 방법은 그것이 “환경”변수로 생성되는 것입니다.환경과 캡쳐된 변수는 그 스코프 실행이 끝난 후에도 존재할 수 있습니다.function theCityThatAlwaysSleeps() {    let getCity;    if (true) {        let city = \"Seattle\";        getCity = function() {            return city;        }    }    return getCity();}city 변수의 경우 if 블록의 실행이 끝났지만 접근이 가능합니다.앞서 봤던 setTimeout 예제를 let으로 변경하면 IIFE를 사용하지 않아도 됩니다.for (let i = 0; i &lt; 10 ; i++) {    setTimeout(function() { console.log(i); }, 100 * i);}const 선언const 이름에서 의미하듯 한번 선언하면 변경할 수 없습니다.참조는 변경할수 없지만 참조하는 객체의 값은 변경할 수 있습니다.const numLivesForCat = 9;const kitty = {    name: \"Aurora\",    numLives: numLivesForCat,}// Errorkitty = {    name: \"Danielle\",    numLives: numLivesForCat};// \"okay\"kitty.name = \"Rory\";kitty.name = \"Kitty\";kitty.name = \"Cat\";kitty.numLives--;타입스크립트에서 객체 멤버를 redonly로 지정할 수 있습니다.인터페이스장에서 자세히 설명되어 있습니다.let vs.const두개의 선언 방식중에 어떤것을 사용할지 선택해야 합니다.최소 특권의 원칙에 따르면 수정할 경우가 아니면 모두 const로 사용해야 합니다.비구조화(destructuring)ECMAScript 2015 특색인 destructuring를 타입스크립트에서 가지고 있습니다.MDN Destructuring에 자세히 나와 있습니다.배열 비구조화(Array destructuring)let input = [1, 2];let [first, second] = input;console.log(first); // outputs 1console.log(second); // outputs 2//swap[first, second] = [second, first];//remaining itemslet [first, ...rest] = [1, 2, 3, 4];console.log(first); // outputs 1console.log(rest); // outputs [ 2, 3, 4 ]//other elementslet [, second, , fourth] = [1, 2, 3, 4];객체 비구조화(Object destructuring)let o = {    a: \"foo\",    b: 12,    c: \"bar\"};let { a, b } = o;//without declaration with surround({ a, b } = { a: \"baz\", b: 101 });let { a, ...passthrough } = o;let total = passthrough.b + passthrough.c.length;let { a, b }: { a: string, b: number } = o;기본값이 undefined 이면 기본 값을 지정할수 있습니다.function keepWholeObject(wholeObject: { a: string, b?: number }) {    let { a, b = 1001 } = wholeObject;}wholeObject는 a,b 프로퍼티를 가지고 있는데 b가 undefined경우 1001로 기본 값을 지정한예입니다.함수 선언(Function declarations)함수 선언에도 비구조화를 사용할수 있습니다.type C = { a: string, b?: number }function f({ a, b }: C): void {    // ...}트릭을 써서 기본값을 설정할 수 있습니다.function f({ a, b = 0 } = { a: \"\" }): void {    // ...}f({ a: \"yes\" }); // ok, default b = 0f(); // ok, default to { a: \"\" }, which then defaults b = 0f({}); // error, 'a' is required if you supply an argument깊은 중첩은 이해하기 어렵기때문에 최소한으로 단순하게 사용하는게 좋습니다.스프레드(Spread)스프레드 연산자는 비구조화의 반댓말입니다. 배열을 다른 배열로 객체를 다른 객체로 퍼트릴수 있습니다.let first = [1, 2];let second = [3, 4];let bothPlus = [0, ...first, ...second, 5];// result// [0, 1, 2, 3, 4, 5]let defaults = { food: \"spicy\", price: \"$$\", ambiance: \"noisy\" };let search = { ...defaults, food: \"rich\" };// result// { food: \"rich\", price: \"$$\", ambiance: \"noisy\" }스프레드 연산자의 제한 사항이 2가지가 있습니다.첫번째, 스프레드시 객체가 가진 불변 속성만 포함합니다.즉 함수가 포함된 객체를 스프레드하면 함수는 제외됩니다.class C {  p = 12;  m() {  }}let c = new C();let clone = { ...c };clone.p; // okclone.m(); // error!두번째, 타입스크립트 컴파일러는 일반함수의 매개 변수 스프레이드를 허용하지 않습니다.",
+        "url": "//2018/10/14/ts-variable-declarations.html"
+      }
+      ,
+    
+      "2018-10-14-ts-basic-type-html": {
+        "title": "[Handbook] 기본 타입들(Basic Types)",
+        "tags": "typescirpt, handbook, front-end, javascript, js",
+        "date": "October 14, 2018",
+        "author": "",
+        "category": "",
+        "content": "타입스크립트의 기본 타입을 학습한다.Booleantrue/false 값을 갖는다.let isDone: boolean = false;Number타입스크립트의 숫자는 부동 소수점 값이다.10진수 16진수 외에도 ES2015의 소개된 타입스크립트는 2진, 8진 리터럴을 제공한다.let decimal: number = 6;let hex: number = 0xf00d;let binary: number = 0b1010;let octal: number = 0o744;String다른 언어처럼, 문자열 데이터 타입을 참조하는 문자열 타입을 사용할 수 있다.타입스크립트는 자바스크립처럼 문자열 데이터를 둘러쌀때 큰따옴표(“)와 작은따옴표(‘)를let color: string = \"blue\";color = 'red';템플릿 문자열도 사용할 수 있습니다.문자열 주변을 backtick/backquote (`)로 둘러싸고  ${ expr } 삽입식을 넣을수 있습니다.let fullName: string = `Bob Bobbington`;let age: number = 37;let sentence: string = `Hello, my name is ${ fullName }.I'll be ${ age + 1 } years old next month.`;This is equivalent to declaring sentence like so:let sentence: string = \"Hello, my name is \" + fullName + \".\\n\\n\" +    \"I'll be \" + (age + 1) + \" years old next month.\";ArrayTypeScript, like JavaScript, allows you to work with arrays of values. Array types can be written in one of two ways. In the first, you use the type of the elements followed by [] to denote an array of that element type:let list: number[] = [1, 2, 3];The second way uses a generic array type, Array:let list: Array&lt;number&gt; = [1, 2, 3];TupleTuple types allow you to express an array where the type of a fixed number of elements is known, but need not be the same. For example, you may want to represent a value as a pair of a string and a number:// Declare a tuple typelet x: [string, number];// Initialize itx = [\"hello\", 10]; // OK// Initialize it incorrectlyx = [10, \"hello\"]; // ErrorWhen accessing an element with a known index, the correct type is retrieved:console.log(x[0].substr(1)); // OKconsole.log(x[1].substr(1)); // Error, 'number' does not have 'substr'When accessing an element outside the set of known indices, a union type is used instead:x[3] = \"world\"; // OK, 'string' can be assigned to 'string | number'console.log(x[5].toString()); // OK, 'string' and 'number' both have 'toString'x[6] = true; // Error, 'boolean' isn't 'string | number'Union types are an advanced topic that we’ll cover in a later chapter.EnumA helpful addition to the standard set of datatypes from JavaScript is the enum. As in languages like C#, an enum is a way of giving more friendly names to sets of numeric values.enum Color {Red, Green, Blue}let c: Color = Color.Green;By default, enums begin numbering their members starting at 0. You can change this by manually setting the value of one of its members. For example, we can start the previous example at 1 instead of 0:enum Color {Red = 1, Green, Blue}let c: Color = Color.Green;Or, even manually set all the values in the enum:enum Color {Red = 1, Green = 2, Blue = 4}let c: Color = Color.Green;A handy feature of enums is that you can also go from a numeric value to the name of that value in the enum. For example, if we had the value 2 but weren’t sure what that mapped to in the Color enum above, we could look up the corresponding name:enum Color {Red = 1, Green, Blue}let colorName: string = Color[2];console.log(colorName); // Displays 'Green' as its value is 2 aboveAnyWe may need to describe the type of variables that we do not know when we are writing an application. These values may come from dynamic content, e.g. from the user or a 3rd party library. In these cases, we want to opt-out of type-checking and let the values pass through compile-time checks. To do so, we label these with the any type:let notSure: any = 4;notSure = \"maybe a string instead\";notSure = false; // okay, definitely a booleanThe any type is a powerful way to work with existing JavaScript, allowing you to gradually opt-in and opt-out of type-checking during compilation. You might expect Object to play a similar role, as it does in other languages. But variables of type Object only allow you to assign any value to them - you can’t call arbitrary methods on them, even ones that actually exist:let notSure: any = 4;notSure.ifItExists(); // okay, ifItExists might exist at runtimenotSure.toFixed(); // okay, toFixed exists (but the compiler doesn't check)let prettySure: Object = 4;prettySure.toFixed(); // Error: Property 'toFixed' doesn't exist on type 'Object'.The any type is also handy if you know some part of the type, but perhaps not all of it. For example, you may have an array but the array has a mix of different types:let list: any[] = [1, true, \"free\"];list[1] = 100;Voidvoid is a little like the opposite of any: the absence of having any type at all. You may commonly see this as the return type of functions that do not return a value:function warnUser(): void {    console.log(\"This is my warning message\");}Declaring variables of type void is not useful because you can only assign undefined or null to them:let unusable: void = undefined;Null and UndefinedIn TypeScript, both undefined and null actually have their own types named undefined and null respectively. Much like void, they’re not extremely useful on their own:// Not much else we can assign to these variables!let u: undefined = undefined;let n: null = null;By default null and undefined are subtypes of all other types. That means you can assign null and undefined to something like number.            However, when using the –strictNullChecks flag, null and undefined are only assignable to void and their respective types. This helps avoid many common errors. In cases where you want to pass in either a string or null or undefined, you can use the union type string      null      undefined. Once again, more on union types later on.      As a note: we encourage the use of –strictNullChecks when possible, but for the purposes of this handbook, we will assume it is turned off.NeverThe never type represents the type of values that never occur. For instance, never is the return type for a function expression or an arrow function expression that always throws an exception or one that never returns; Variables also acquire the type never when narrowed by any type guards that can never be true.The never type is a subtype of, and assignable to, every type; however, no type is a subtype of, or assignable to, never (except never itself). Even any isn’t assignable to never.Some examples of functions returning never:// Function returning never must have unreachable end pointfunction error(message: string): never {    throw new Error(message);}// Inferred return type is neverfunction fail() {    return error(\"Something failed\");}// Function returning never must have unreachable end pointfunction infiniteLoop(): never {    while (true) {    }}Objectobject is a type that represents the non-primitive type, i.e. any thing that is not number, string, boolean, symbol, null, or undefined.With object type, APIs like Object.create can be better represented. For example:declare function create(o: object | null): void;create({ prop: 0 }); // OKcreate(null); // OKcreate(42); // Errorcreate(\"string\"); // Errorcreate(false); // Errorcreate(undefined); // ErrorType assertionsSometimes you’ll end up in a situation where you’ll know more about a value than TypeScript does. Usually this will happen when you know the type of some entity could be more specific than its current type.Type assertions are a way to tell the compiler “trust me, I know what I’m doing.” A type assertion is like a type cast in other languages, but performs no special checking or restructuring of data. It has no runtime impact, and is used purely by the compiler. TypeScript assumes that you, the programmer, have performed any special checks that you need.Type assertions have two forms. One is the “angle-bracket” syntax:let someValue: any = \"this is a string\";let strLength: number = (&lt;string&gt;someValue).length;And the other is the as-syntax:let someValue: any = \"this is a string\";let strLength: number = (someValue as string).length;The two samples are equivalent. Using one over the other is mostly a choice of preference; however, when using TypeScript with JSX, only as-style assertions are allowed.A note about letYou may’ve noticed that so far, we’ve been using the let keyword instead of JavaScript’s var keyword which you might be more familiar with. The let keyword is actually a newer JavaScript construct that TypeScript makes available. We’ll discuss the details later, but many common problems in JavaScript are alleviated by using let, so you should use it instead of var whenever possible.console.log(\"hello word\")Reference  TypesScript Handbook",
+        "url": "//2018/10/14/ts-basic-type.html"
+      }
+      
+    
+  };
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/0.7.1/lunr.min.js"></script>
+<script src="/assets/js/search.js"></script>
+</section>
+</article>
+
+    </div>
+    
+
+
+<footer class="site-footer">
+	<p class="text"><p>copyright 2018 by Hyeon-Mi.<br/>theme by rohanchandra.</p>
+</p>
+</footer>
+
+
+  </body>
+</html>

@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+	<meta charset="utf-8">
+	<title>[Handbook] 변수 선언(Variable Declarations) | Hyeon-Mi's Blog</title>
+	<meta name="description" content="변수 선언var 선언자바스크립트에 익숙한 사람에게는 꼭 필요한 내용이 아니라서 간단하게 특징만 짚고 넘어갑니다.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+
+	<!--Favicon-->
+	<link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+	<!-- Canonical -->
+	<link rel="canonical" href="/2018/10/14/ts-variable-declarations.html">
+
+	<!-- RSS -->
+	<link rel="alternate" type="application/atom+xml" title="Hyeon-Mi's Blog" href="/feed.xml" />
+
+	<!-- Font Awesome -->
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+	<!-- Google Fonts -->
+	
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,700italic,400italic" rel="stylesheet" type="text/css">
+	
+
+	<!-- KaTeX -->
+	
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.css" integrity="sha384-BTL0nVi8DnMrNdMQZG1Ww6yasK9ZGnUxL1ZWukXQ7fygA1py52yPp9W4wrR00VML" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/katex@0.10.0-alpha/dist/katex.min.js" integrity="sha384-y6SGsNt7yZECc4Pf86XmQhC4hG2wxL6Upkt9N1efhFxfh6wlxBH0mJiTE8XYclC1" crossorigin="anonymous"></script>
+	
+
+	<!-- Google Analytics -->
+	
+</head>
+
+  <body>
+    <header class="site-header">
+	<div class="branding">
+		
+		<a href="/">
+			<img class="avatar" src="/assets/img/avatar.jpg" alt=""/>
+		</a>
+		
+		<h1 class="site-title">
+			<a href="/">Hyeon-Mi's Blog</a>
+		</h1>
+	</div>
+	<nav class="site-nav">
+		<ul>
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/about/">
+					about
+				</a>
+			</li>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<li>
+				<a class="page-link" href="/tags.html">
+					tags
+				</a>
+			</li>
+			
+			
+			<!-- Social icons from Font Awesome, if enabled  -->
+			
+
+
+<li>
+	<a href="mailto:kim.hyeonmi.0711@gmail.com" title="Email">
+		<i class="fa fa-fw fa-envelope"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://github.com/hyeonmi" title="Follow on GitHub">
+		<i class="fa fa-fw fa-github"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+<li>
+	<a href="https://www.linkedin.com/in/hyeon-mi-kim-5b7339ab/" title="Follow on LinkedIn">
+		<i class="fa fa-fw fa-linkedin"></i>
+	</a>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li>
+	<a href="https://twitter.com/@skylarkim22" title="Follow on Twitter">
+		<i class="fa fa-fw fa-twitter"></i>
+	</a>
+</li>
+
+
+
+
+
+
+            
+            <!-- Search bar -->
+            
+		</ul>
+	</nav>
+    
+</header>
+
+    <div class="content">
+      <article >
+  <header style="background-image: url('/')">
+    <h2 class="title">[Handbook] 변수 선언(Variable Declarations)</h2>
+    
+    <p class="meta">
+      October 14, 2018
+      
+    </p>
+  </header>
+  <section class="post-content"><h1 id="변수-선언">변수 선언</h1>
+<h2 id="var-선언">var 선언</h2>
+<p>자바스크립트에 익숙한 사람에게는 꼭 필요한 내용이 아니라서 간단하게 특징만 짚고 넘어갑니다.</p>
+
+<h3 id="함수-단위의-스코프">함수 단위의 스코프</h3>
+<p>이전의 자바스크립트의 var는 다른 언어와 다르게 블록 단위로 변수의 스코프가 정해지지 않습니다.
+함수, 객체, 모듈, 네임스페이스, 글로벌 스코프가 존재합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">shouldInitialize</span><span class="p">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">shouldInitialize</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">x</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">f</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>  <span class="c1">// returns '10'</span>
+<span class="nx">f</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span> <span class="c1">// returns 'undefined'</span>
+</code></pre></div></div>
+<p>예제의 경우처럼 x 변수가 if 블록 안에 선언되었음에도 x값이 할당됩니다.</p>
+
+<h3 id="변수-캡처의-특이점">변수 캡처의 특이점</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="p">},</span> <span class="mi">100</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">//결과는 10이 10번 찍힌다.</span>
+</code></pre></div></div>
+<p>이런 현상이 발생하는 이유는 for loop가 실행이 끝난 후에 setTimeout가 실행되는데
+그때 캡쳐된 i 값이 10이기 때문입니다.</p>
+
+<p>1 ~ 10 순차적으로 출력하려면 반복마다 i를 캡쳐하는 즉시실행함수(IIFE:Immediately Invoked Function Expression)사용 하면됩니다.</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// 현재 상태의 i를 캡쳐</span>
+    <span class="c1">// 현재 값과 함수가 호출 된다.</span>
+    <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="p">},</span> <span class="mi">100</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span>
+    <span class="p">})(</span><span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="let-선언">let 선언</h2>
+<p>대부분 var와 유사하지만 가장 큰 차이점은 let은 블록 스코프를 가진다는 점입니다.
+let으로 선언하게 되면 렉스컬 스코프(lexical-scope), 블록 스코프(block-scope)로 불리는 스코프를 사용하게 됩니다.
+블록 스코프는 var와 다르게 가까운 블록안의 스코프를 가집니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">f</span><span class="p">(</span><span class="nx">input</span><span class="p">:</span> <span class="kr">boolean</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nx">input</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// 'a' 참조 가능</span>
+        <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="nx">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Error: 'b'는 여기에 존재하지 않음</span>
+    <span class="k">return</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>또한 블록 스코프를 벗어나서 호출하거나 변수가 선언되기 전에 호출 하면 에러를 발생시킵니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="p">{</span>
+    <span class="k">throw</span> <span class="s2">"oh no!"</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">catch</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"Oh well."</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// Error: 'e' doesn't exist here</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+
+
+<span class="nx">a</span><span class="o">++</span><span class="p">;</span> <span class="c1">// illegal to use 'a' before it's declared;</span>
+<span class="kd">let</span> <span class="nx">a</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="재선언과-쉐도잉">재선언과 쉐도잉</h3>
+<p>var의 경우 이미 선언된 변수를 중첩해서 선언할수 있어서 덮어쓸수 있습니다.
+하지만 let은 재선언 할수 없고 그럴 경우 에러를 발생합니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span> <span class="c1">// error: 같은 스코프 내에서 재선언 할수없다.</span>
+</code></pre></div></div>
+
+<p>중첩된 스코프 안에 동일한 이름으로 새로 선언하는 행위를 쉐도잉이라고 부릅니다.
+가독성에 좋지 않기 때문에 지양하는게 좋습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sumMatrix</span><span class="p">(</span><span class="nx">matrix</span><span class="p">:</span> <span class="nx">number</span><span class="p">[][])</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">matrix</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">currentRow</span> <span class="o">=</span> <span class="nx">matrix</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">currentRow</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">sum</span> <span class="o">+=</span> <span class="nx">currentRow</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">sum</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="블록-스코프의-변수-캡쳐">블록 스코프의 변수 캡쳐</h3>
+<p>스코프가 실행될때마다 “환경(environment)” 변수를 생성하는데 실행을 마친후에도
+매번 스코프가 실행될때 직관적으로 더 나은 방법은 그것이 “환경”변수로 생성되는 것입니다.
+환경과 캡쳐된 변수는 그 스코프 실행이 끝난 후에도 존재할 수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">theCityThatAlwaysSleeps</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="nx">getCity</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nx">city</span> <span class="o">=</span> <span class="s2">"Seattle"</span><span class="p">;</span>
+        <span class="nx">getCity</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">city</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="nx">getCity</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">city</code> 변수의 경우 if 블록의 실행이 끝났지만 접근이 가능합니다.
+앞서 봤던 setTimeout 예제를 let으로 변경하면 IIFE를 사용하지 않아도 됩니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span> <span class="p">},</span> <span class="mi">100</span> <span class="o">*</span> <span class="nx">i</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="const-선언">const 선언</h2>
+<p>const 이름에서 의미하듯 한번 선언하면 변경할 수 없습니다.
+참조는 변경할수 없지만 참조하는 객체의 값은 변경할 수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">numLivesForCat</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+<span class="kd">const</span> <span class="nx">kitty</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Aurora"</span><span class="p">,</span>
+    <span class="na">numLives</span><span class="p">:</span> <span class="nx">numLivesForCat</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1">// Error</span>
+<span class="nx">kitty</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s2">"Danielle"</span><span class="p">,</span>
+    <span class="na">numLives</span><span class="p">:</span> <span class="nx">numLivesForCat</span>
+<span class="p">};</span>
+
+<span class="c1">// "okay"</span>
+<span class="nx">kitty</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Rory"</span><span class="p">;</span>
+<span class="nx">kitty</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Kitty"</span><span class="p">;</span>
+<span class="nx">kitty</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Cat"</span><span class="p">;</span>
+<span class="nx">kitty</span><span class="p">.</span><span class="nx">numLives</span><span class="o">--</span><span class="p">;</span>
+</code></pre></div></div>
+<p>타입스크립트에서 객체 멤버를 redonly로 지정할 수 있습니다.
+인터페이스장에서 자세히 설명되어 있습니다.</p>
+
+<h2 id="let-vsconst">let vs.const</h2>
+<p>두개의 선언 방식중에 어떤것을 사용할지 선택해야 합니다.
+<a href="https://en.wikipedia.org/wiki/Principle_of_least_privilege">최소 특권의 원칙</a>에 따르면 수정할 경우가 아니면 모두 const로 사용해야 합니다.</p>
+
+<h2 id="비구조화destructuring">비구조화(destructuring)</h2>
+<p>ECMAScript 2015 특색인 destructuring를 타입스크립트에서 가지고 있습니다.
+<a href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN Destructuring</a>에 자세히 나와 있습니다.</p>
+
+<h3 id="배열-비구조화array-destructuring">배열 비구조화(Array destructuring)</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">input</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">]</span> <span class="o">=</span> <span class="nx">input</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span> <span class="c1">// outputs 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">second</span><span class="p">);</span> <span class="c1">// outputs 2</span>
+
+<span class="c1">//swap</span>
+<span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="nx">second</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">second</span><span class="p">,</span> <span class="nx">first</span><span class="p">];</span>
+
+<span class="c1">//remaining items</span>
+<span class="kd">let</span> <span class="p">[</span><span class="nx">first</span><span class="p">,</span> <span class="p">...</span><span class="nx">rest</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">first</span><span class="p">);</span> <span class="c1">// outputs 1</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">rest</span><span class="p">);</span> <span class="c1">// outputs [ 2, 3, 4 ]</span>
+
+<span class="c1">//other elements</span>
+<span class="kd">let</span> <span class="p">[,</span> <span class="nx">second</span><span class="p">,</span> <span class="p">,</span> <span class="nx">fourth</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+
+</code></pre></div></div>
+
+<h3 id="객체-비구조화object-destructuring">객체 비구조화(Object destructuring)</h3>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">o</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="na">a</span><span class="p">:</span> <span class="s2">"foo"</span><span class="p">,</span>
+    <span class="na">b</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span>
+    <span class="na">c</span><span class="p">:</span> <span class="s2">"bar"</span>
+<span class="p">};</span>
+<span class="kd">let</span> <span class="p">{</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+
+<span class="c1">//without declaration with surround</span>
+<span class="p">({</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="s2">"baz"</span><span class="p">,</span> <span class="na">b</span><span class="p">:</span> <span class="mi">101</span> <span class="p">});</span>
+
+<span class="kd">let</span> <span class="p">{</span> <span class="nx">a</span><span class="p">,</span> <span class="p">...</span><span class="nx">passthrough</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+<span class="kd">let</span> <span class="nx">total</span> <span class="o">=</span> <span class="nx">passthrough</span><span class="p">.</span><span class="nx">b</span> <span class="o">+</span> <span class="nx">passthrough</span><span class="p">.</span><span class="nx">c</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span>
+
+<span class="kd">let</span> <span class="p">{</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">}:</span> <span class="p">{</span> <span class="nl">a</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">b</span><span class="p">:</span> <span class="nx">number</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>기본값이 undefined 이면 기본 값을 지정할수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">keepWholeObject</span><span class="p">(</span><span class="nx">wholeObject</span><span class="p">:</span> <span class="p">{</span> <span class="nl">a</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">b</span><span class="p">?:</span> <span class="nx">number</span> <span class="p">})</span> <span class="p">{</span>
+    <span class="kd">let</span> <span class="p">{</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1001</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">wholeObject</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>wholeObject는 a,b 프로퍼티를 가지고 있는데 b가 undefined경우 1001로 기본 값을 지정한예입니다.</p>
+
+<h3 id="함수-선언function-declarations">함수 선언(Function declarations)</h3>
+<p>함수 선언에도 비구조화를 사용할수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">type</span> <span class="nx">C</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="nx">string</span><span class="p">,</span> <span class="nx">b</span><span class="p">?:</span> <span class="nx">number</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">f</span><span class="p">({</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="p">}:</span> <span class="nx">C</span><span class="p">):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>트릭을 써서 기본값을 설정할 수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">f</span><span class="p">({</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="o">=</span> <span class="p">{</span> <span class="na">a</span><span class="p">:</span> <span class="s2">""</span> <span class="p">}):</span> <span class="k">void</span> <span class="p">{</span>
+    <span class="c1">// ...</span>
+<span class="p">}</span>
+<span class="nx">f</span><span class="p">({</span> <span class="na">a</span><span class="p">:</span> <span class="s2">"yes"</span> <span class="p">});</span> <span class="c1">// ok, default b = 0</span>
+<span class="nx">f</span><span class="p">();</span> <span class="c1">// ok, default to { a: "" }, which then defaults b = 0</span>
+<span class="nx">f</span><span class="p">({});</span> <span class="c1">// error, 'a' is required if you supply an argument</span>
+</code></pre></div></div>
+<p>깊은 중첩은 이해하기 어렵기때문에 최소한으로 단순하게 사용하는게 좋습니다.</p>
+
+<h3 id="스프레드spread">스프레드(Spread)</h3>
+<p>스프레드 연산자는 비구조화의 반댓말입니다. 배열을 다른 배열로 객체를 다른 객체로 퍼트릴수 있습니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">first</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">second</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">];</span>
+<span class="kd">let</span> <span class="nx">bothPlus</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">...</span><span class="nx">first</span><span class="p">,</span> <span class="p">...</span><span class="nx">second</span><span class="p">,</span> <span class="mi">5</span><span class="p">];</span>
+
+<span class="c1">// result</span>
+<span class="c1">// [0, 1, 2, 3, 4, 5]</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">let</span> <span class="nx">defaults</span> <span class="o">=</span> <span class="p">{</span> <span class="na">food</span><span class="p">:</span> <span class="s2">"spicy"</span><span class="p">,</span> <span class="na">price</span><span class="p">:</span> <span class="s2">"$$"</span><span class="p">,</span> <span class="na">ambiance</span><span class="p">:</span> <span class="s2">"noisy"</span> <span class="p">};</span>
+<span class="kd">let</span> <span class="nx">search</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">defaults</span><span class="p">,</span> <span class="na">food</span><span class="p">:</span> <span class="s2">"rich"</span> <span class="p">};</span>
+
+<span class="c1">// result</span>
+<span class="c1">// { food: "rich", price: "$$", ambiance: "noisy" }</span>
+</code></pre></div></div>
+
+<p>스프레드 연산자의 제한 사항이 2가지가 있습니다.
+첫번째, 스프레드시 객체가 가진 불변 속성만 포함합니다.
+즉 함수가 포함된 객체를 스프레드하면 함수는 제외됩니다.</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="nx">C</span> <span class="p">{</span>
+  <span class="nx">p</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+  <span class="nx">m</span><span class="p">()</span> <span class="p">{</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">c</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">C</span><span class="p">();</span>
+<span class="kd">let</span> <span class="nx">clone</span> <span class="o">=</span> <span class="p">{</span> <span class="p">...</span><span class="nx">c</span> <span class="p">};</span>
+<span class="nx">clone</span><span class="p">.</span><span class="nx">p</span><span class="p">;</span> <span class="c1">// ok</span>
+<span class="nx">clone</span><span class="p">.</span><span class="nx">m</span><span class="p">();</span> <span class="c1">// error!</span>
+</code></pre></div></div>
+<p>두번째, 타입스크립트 컴파일러는 일반함수의 매개 변수 스프레이드를 허용하지 않습니다.</p>
+</section>
+  
+<footer>
+  <div class="tags">
+    
+    <a class="tag" href="/tags#typescirpt">#typescirpt</a>
+    
+    <a class="tag" href="/tags#handbook">#handbook</a>
+    
+    <a class="tag" href="/tags#front-end">#front-end</a>
+    
+    <a class="tag" href="/tags#javascript">#javascript</a>
+    
+    <a class="tag" href="/tags#js">#js</a>
+    
+  </div>
+</footer>
+
+
+</article>
+
+<!-- Disqus -->
+
+
+<!-- Post navigation -->
+
+
+    </div>
+    
+<script src="/assets/js/katex_init.js"></script>
+
+
+
+<footer class="site-footer">
+	<p class="text"><p>copyright 2018 by Hyeon-Mi.<br/>theme by rohanchandra.</p>
+</p>
+</footer>
+
+
+  </body>
+</html>
