@@ -1,5 +1,5 @@
 # SITE CONFIGURATION
-baseurl: ""
+baseurl: "/blog"
 url: "https://hyeonmi.github.io/blog/"
 
 # THEME-SPECIFIC CONFIGURATION

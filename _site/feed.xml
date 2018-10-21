@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hyeon-Mi's Blog</title>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml"/>
-    <link>http://localhost:4000/</link>
+    <atom:link href="/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://localhost:4000/blog/</link>
     <description>#frontend-engineer #agile #servant-leadership #coffee #writer</description>
-    <pubDate>Mon, 22 Oct 2018 00:09:24 +0900</pubDate>
+    <pubDate>Mon, 22 Oct 2018 00:16:05 +0900</pubDate>
     
       <item>
         <title>[Handbook] 변수 선언(Variable Declarations)</title>
-        <link>/2018/10/14/ts-variable-declarations.html</link>
-        <guid isPermaLink="true">/2018/10/14/ts-variable-declarations.html</guid>
+        <link>/blog/2018/10/14/ts-variable-declarations.html</link>
+        <guid isPermaLink="true">/blog/2018/10/14/ts-variable-declarations.html</guid>
         <description>&lt;h1 id=&quot;변수-선언&quot;&gt;변수 선언&lt;/h1&gt;
 &lt;h2 id=&quot;var-선언&quot;&gt;var 선언&lt;/h2&gt;
 &lt;p&gt;자바스크립트에 익숙한 사람에게는 꼭 필요한 내용이 아니라서 간단하게 특징만 짚고 넘어갑니다.&lt;/p&gt;
@@ -277,8 +277,8 @@ let으로 선언하게 되면 렉스컬 스코프(lexical-scope), 블록 스코�
     
       <item>
         <title>[Handbook] 기본 타입들(Basic Types)</title>
-        <link>/2018/10/14/ts-basic-type.html</link>
-        <guid isPermaLink="true">/2018/10/14/ts-basic-type.html</guid>
+        <link>/blog/2018/10/14/ts-basic-type.html</link>
+        <guid isPermaLink="true">/blog/2018/10/14/ts-basic-type.html</guid>
         <description>&lt;p&gt;타입스크립트의 기본 타입을 학습한다.&lt;/p&gt;
 
 &lt;h3 id=&quot;boolean&quot;&gt;Boolean&lt;/h3&gt;
