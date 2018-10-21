@@ -2,7 +2,7 @@
 layout: post
 title:  "[Handbook] 변수 선언(Variable Declarations)"
 date:   2018-10-14 17:20:00 +0900
-categories: TypesScript
+tags: [typescirpt, handbook, front-end, javascript, js]
 ---
 
 # 변수 선언

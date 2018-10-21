@@ -2,7 +2,7 @@
 layout: post
 title:  "[Handbook] 기본 타입들(Basic Types)"
 date:   2018-10-14 16:19:29 +0900
-categories: TypesScript
+tags: [typescirpt, handbook, front-end, javascript, js]
 ---
 
 타입스크립트의 기본 타입을 학습한다.
